@@ -21,7 +21,7 @@ public class UserService {
         return repository.findAll();
     }
 
-    public String delete(Integer id) { repository.deleteById(id); return "Deleted!!";};
+    public String delete(Integer id) { repository.deleteById(id); return "Deleted!!";}
 
     public User update(Integer id,User user) {
         User user1=repository.findById(id).orElseThrow();

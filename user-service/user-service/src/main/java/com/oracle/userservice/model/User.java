@@ -24,6 +24,18 @@ public class User {
     @Column(nullable = false)
     private Integer age;
 
+    public User() {
+    }
+
+    public User(Integer userId, String name, String phoneNo, String mail, String state, Integer age) {
+        this.userId = userId;
+        this.name = name;
+        this.phoneNo = phoneNo;
+        this.mail = mail;
+        this.state = state;
+        this.age = age;
+    }
+
     public Integer getUserId() {
         return userId;
     }

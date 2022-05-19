@@ -43,9 +43,9 @@ public class ReservationController {
 
     @GetMapping("/book/{flightId}/{userId}") //
     public String getBookings(@PathVariable Integer flightId, @PathVariable Integer userId){
-        Flight flight = restTemplate.getForObject("http://localhost:8081/flights/" + flightId , Flight.class);
+        Flight flight = restTemplate.getForObject("http://flight-service/flights/" + flightId , Flight.class);
         Integer flightPrice = flight.getPrice();
-        boolean isSeatCheck = restTemplate.getForObject("http://localhost:8081/flights/checkIfSeatsAvailable/" + flightId, Boolean.class);
+        boolean isSeatCheck = restTemplate.getForObject("http://flight-service/flights/checkIfSeatsAvailable/" + flightId, Boolean.class);
         if(isSeatCheck) {
             User user = restTemplate.getForObject("http://localhost:8080/user/find/" + userId, User.class);
             Integer customerAge = user.getAge();
